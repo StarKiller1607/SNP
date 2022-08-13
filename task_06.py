@@ -1,8 +1,14 @@
-def rsp_game_winner(game):
+class WrongNumberOfPlayersError(Exception):
+    __module__ = Exception.__module__
+
+class NoSuchStrategyError(Exception):
+    __module__ = Exception.__module__
+
+def rps_game_winner(game):
     if len(game) != 2:
-        return 'WrongNumberOfPlayersError'
+        raise WrongNumberOfPlayersError
     if game[0][1] not in 'RPS' or game[1][1] not in 'RPS':
-        return 'NoSuchStrategyError'
+        raise NoSuchStrategyError
     win = ''
     if game[0][1] == game[1][1]:
         for i in range(2):

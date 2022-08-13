@@ -1,22 +1,19 @@
 class Dessert:
-    def __init__(self, name = 'Noname', cal = None):
+    def __init__(self, name = 'Noname', calories = None):
         self.name = name
-        self.cal = cal
+        self.calories = calories
     def setName(self, name):
         self.name = name
-    def setCal(self, cal):
-        self.cal = cal
+    def setCalories(self, calories):
+        self.calories = calories
     def getName(self):
         return self.name
-    def getCal(self):
-        return self.cal
+    def getCalories(self):
+        return self.calories
     def is_healthy(self):
-        if self.cal == None:
-            return 'CaloriesNotDetermined'
+        if type(self.calories) == int or type(self.calories) == float:
+            return self.calories < 200
         else:
-            return self.cal < 200
+            return False
     def is_delicious(self):
-        if self.cal == None:
-            return 'CaloriesNotDetermined'
-        else:
-            return self.cal >= 200
+        return True

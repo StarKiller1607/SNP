@@ -1,29 +1,29 @@
-class JellyBean:
-    def __init__(self, flavor = 'Some'):
+class Dessert:
+    def __init__(self, name = None, calories = None):
+        self.name = name
+        self.calories = calories
+    def setName(self, name):
+        self.name = name
+    def setCalories(self, calories):
+        self.calories = calories
+    def getName(self):
+        return self.name
+    def getCalories(self):
+        return self.calories
+    def is_healthy(self):
+        if type(self.calories) == int or type(self.calories) == float:
+            return self.calories < 200
+        else:
+            return False
+
+class JellyBean(Dessert):
+    def __init__(self, *args, flavor = None):
+        Dessert.__init__(self, *args)
         self.flavor = flavor
     def setFlavor(self, flavor):
         self.flavor = flavor
     def getFlavor(self):
         return self.flavor
-
-class Dessert(JellyBean):
-    def __init__(self, *args, name = 'Noname', cal = None):
-        JellyBean.__init__(self, *args)
-        self.name = name
-        self.cal = cal
-    def setName(self, name):
-        self.name = name
-    def setCal(self, cal):
-        self.cal = cal
-    def getName(self):
-        return self.name
-    def getCal(self):
-        return self.cal
-    def is_healthy(self):
-        if self.cal == None:
-            return 'CaloriesNotDetermined'
-        else:
-            return self.cal < 200
     def is_delicious(self):
         if self.flavor == 'black licorice':
             return False
